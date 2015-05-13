@@ -8,22 +8,20 @@ public class PlayerController : MonoBehaviour
 	public float jumpHeight;
 	public Transform groundCheck;
 	public float groundCheckRadius;
-	//public LayerMask whatIsGround;
+	public LayerMask whatIsGround;
 	private bool grounded;
 	private bool doubleJumped;
 
 	// Use this for initialization
 	void Start ()
 	{
-		//TODO: Take this out after adding whatIsGround
-		grounded = true;
 	
 	}
 
 	void FixedUpdate ()
 	{
 
-		//grounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
+		grounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
 	}
 	
 	// Update is called once per frame
@@ -45,7 +43,7 @@ public class PlayerController : MonoBehaviour
 			
 			jump ();
 			
-			//doubleJumped = true;
+			doubleJumped = true;
 		}
 		
 		//move right

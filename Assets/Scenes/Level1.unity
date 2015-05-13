@@ -97,7 +97,7 @@ GameObject:
   - 4: {fileID: 155730368}
   - 212: {fileID: 155730370}
   - 61: {fileID: 155730369}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,6 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 682027398}
+  - {fileID: 627029936}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!212 &183091726
@@ -252,10 +253,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5636992904be3a4bb9b8bb2a3a1a404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 3
   jumpHeight: 5
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 627029936}
   groundCheckRadius: .300000012
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &183091730
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -298,7 +302,7 @@ GameObject:
   - 4: {fileID: 300043126}
   - 212: {fileID: 300043128}
   - 61: {fileID: 300043127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,6 +360,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 658afa4330415d942ae05d1ec41cd3be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &627029935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 627029936}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627029936
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 627029935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -.59799999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 183091725}
+  m_RootOrder: 1
 --- !u!1 &682027393
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +436,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .273734868, g: .331762314, b: .610294104, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -435,7 +466,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 682027393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .435268164, y: .285644561, z: -10}
+  m_LocalPosition: {x: .439999998, y: 2.08999991, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 183091725}
@@ -448,7 +479,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 845387126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +517,7 @@ GameObject:
   - 4: {fileID: 932220980}
   - 212: {fileID: 932220982}
   - 61: {fileID: 932220981}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +585,7 @@ GameObject:
   - 4: {fileID: 1142038148}
   - 212: {fileID: 1142038150}
   - 61: {fileID: 1142038149}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +653,7 @@ GameObject:
   - 4: {fileID: 1202216161}
   - 212: {fileID: 1202216163}
   - 61: {fileID: 1202216162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +721,7 @@ GameObject:
   - 4: {fileID: 1297965376}
   - 212: {fileID: 1297965375}
   - 61: {fileID: 1297965374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +789,7 @@ GameObject:
   - 4: {fileID: 1525462352}
   - 212: {fileID: 1525462354}
   - 61: {fileID: 1525462353}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +857,7 @@ GameObject:
   - 4: {fileID: 1946831707}
   - 212: {fileID: 1946831709}
   - 61: {fileID: 1946831708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +925,7 @@ GameObject:
   - 4: {fileID: 2070646148}
   - 212: {fileID: 2070646150}
   - 61: {fileID: 2070646149}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
