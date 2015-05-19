@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 658afa4330415d942ae05d1ec41cd3be
-timeCreated: 1430958410
+timeCreated: 1431560379
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Ground1
     21300002: Ground2
+    21300004: spikes
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -66,6 +67,16 @@ TextureImporter:
         serializedVersion: 2
         x: 223
         y: 201
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spikes
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 246
         width: 45
         height: 45
       alignment: 0
