@@ -1,12 +1,14 @@
 fileFormatVersion: 2
 guid: 658afa4330415d942ae05d1ec41cd3be
-timeCreated: 1431560379
+timeCreated: 1433211649
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Ground1
     21300002: Ground2
     21300004: spikes
+    21300006: groundLevel2
+    21300008: groundLevel3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -77,6 +79,26 @@ TextureImporter:
         serializedVersion: 2
         x: 419
         y: 246
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: groundLevel2
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 152
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: groundLevel3
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 104
         width: 45
         height: 45
       alignment: 0
