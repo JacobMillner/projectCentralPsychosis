@@ -13,13 +13,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Grounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -32,7 +32,7 @@ AnimatorController:
     m_DefaultWeight: 0
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_MultiThreadedStateMachine: 1
 --- !u!1101 &110148342
 AnimatorStateTransition:
@@ -43,17 +43,17 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: Speed
-    m_EventTreshold: .100000001
+    m_EventTreshold: .5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110289364}
-  m_Solo: 0
+  m_Solo: 1
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: .43749997
   m_TransitionOffset: 0
   m_ExitTime: .5625
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -99,7 +99,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 14.999999
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -157,8 +157,8 @@ AnimatorState:
   - {fileID: 110148342}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
+  m_IKOnFeet: 1
+  m_WriteDefaultValues: 0
   m_Mirror: 0
   m_Motion: {fileID: 7400000, guid: 181271e7345800047ba5a8db15519928, type: 2}
   m_Tag: 
