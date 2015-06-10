@@ -11,18 +11,56 @@ public class PlayerController : MonoBehaviour
 	public LayerMask whatIsGround;
 	private bool grounded;
 	private bool doubleJumped;
+	private Animator anim;
+	Rigidbody2D rb2D;
+	Renderer ren;
+	public Transform cameraHolder;
+	public float cameraSpeed;
 
-	private Animator anim; 
+	public enum CameraMovementType
+	{
+		Lerp,
+		MoveTowards,
+		AccelDecel,
+		Accerleration
+	}
+
+	public CameraMovementType cameraMovementType;
+
+	void CameraMovement ()
+	{
+		switch (cameraMovementType) {
+		case CameraMovementType.Lerp:
+			cameraHolder.transform.position = Vector3.Lerp (cameraHolder.transform.position, transform.position, Time.deltaTime * cameraSpeed);
+			break;
+		case CameraMovementType.MoveTowards:
+			cameraHolder.transform.position = Vector3.MoveTowards (cameraHolder.transform.position, transform.position, Time.deltaTime * cameraSpeed);
+			break;
+		case CameraMovementType.AccelDecel:
+			cameraHolder.transform.position = InterpilationLibrary.AccelDecelInterpolation(cameraHolder.position, transform.position, Time.deltaTime * cameraSpeed);
+			break;
+		case CameraMovementType.Accerleration:
+			cameraHolder.transform.position = InterpilationLibrary.AccelerationInterpolation(cameraHolder.position, transform.position, Time.deltaTime * cameraSpeed, 1);
+			break;
+
+		}
+	}
 
 	// Use this for initialization
 	void Start ()
 	{
-		anim = GetComponent<Animator>();
+		anim = GetComponent<Animator> ();
+		rb2D = GetComponent<Rigidbody2D> ();
+		ren = GetComponent<Renderer> ();
+
+		cameraHolder = Camera.main.transform.parent.transform;
 	
 	}
 
 	void FixedUpdate ()
 	{
+
+		CameraMovement ();
 
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
 	}
@@ -34,7 +72,7 @@ public class PlayerController : MonoBehaviour
 		if (grounded)
 			doubleJumped = false;
 
-		anim.SetBool("Grounded", grounded);
+		anim.SetBool ("Grounded", grounded);
 		
 		//jumpy jumpy
 		if (Input.GetKeyDown (KeyCode.Space) && grounded) {
@@ -63,7 +101,7 @@ public class PlayerController : MonoBehaviour
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (-moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
 		}
 
-		anim.SetFloat ("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+		anim.SetFloat ("Speed", Mathf.Abs (GetComponent<Rigidbody2D> ().velocity.x));
 
 		if (GetComponent < Rigidbody2D> ().velocity.x > 0)
 			transform.localScale = new Vector3 (1f, 1f, 1f);
