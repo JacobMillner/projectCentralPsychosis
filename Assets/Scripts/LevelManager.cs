@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour {
 
 	public GameObject deathParticle;
 	public GameObject respawnParticle;
+	public int pointPenaltyOnDeath;
 
 	public float respawnTimer;
 
@@ -34,6 +35,8 @@ public class LevelManager : MonoBehaviour {
 		Instantiate (deathParticle, player.transform.position, player.transform.rotation);
 		player.enabled = false;
 		player.GetComponent<Renderer>().enabled = false;
+		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero; //set the player speed to 0 so he doesnt keep moving after death
+		ScoreManager.AddPoints (-pointPenaltyOnDeath); //subtract the points!!!
 		Debug.Log ("Respawned");
 		yield return new WaitForSeconds (respawnTimer);
 		player.transform.position = currentCheckpoint.transform.position;
