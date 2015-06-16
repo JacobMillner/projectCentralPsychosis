@@ -11,11 +11,15 @@ public class PlayerController : MonoBehaviour
 	public LayerMask whatIsGround;
 	private bool grounded;
 	private bool doubleJumped;
+	private float moveVelocity;
+
 	private Animator anim;
 	Rigidbody2D rb2D;
 	Renderer ren;
 	public Transform cameraHolder;
 	public float cameraSpeed;
+
+
 
 	public enum CameraMovementType
 	{
@@ -88,18 +92,24 @@ public class PlayerController : MonoBehaviour
 			
 			doubleJumped = true;
 		}
-		
+
+
+		moveVelocity = 0f;
 		//move right
 		if (Input.GetKey (KeyCode.D)) {
 			
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
+			//GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
+			moveVelocity = moveSpeed;
 		}
-		
+
 		//move left
 		if (Input.GetKey (KeyCode.A)) {
 			
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (-moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
+			//GetComponent<Rigidbody2D> ().velocity = new Vector2 (-moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
+			moveVelocity = -moveSpeed;
 		}
+
+		GetComponent<Rigidbody2D>().velocity = new Vector3 (moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
 
 		anim.SetFloat ("Speed", Mathf.Abs (GetComponent<Rigidbody2D> ().velocity.x));
 
