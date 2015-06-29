@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour {
 
 	public float respawnTimer;
 
+	private float gravityStore;
+
 	// Use this for initialization
 	void Start () {
 
@@ -35,6 +37,8 @@ public class LevelManager : MonoBehaviour {
 		Instantiate (deathParticle, player.transform.position, player.transform.rotation);
 		player.enabled = false;
 		player.GetComponent<Renderer>().enabled = false;
+		gravityStore = player.GetComponent<Rigidbody2D> ().gravityScale;
+		player.GetComponent<Rigidbody2D> ().gravityScale = 0f;
 		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero; //set the player speed to 0 so he doesnt keep moving after death
 		ScoreManager.AddPoints (-pointPenaltyOnDeath); //subtract the points!!!
 		Debug.Log ("Respawned");
@@ -43,5 +47,6 @@ public class LevelManager : MonoBehaviour {
 		Instantiate (respawnParticle, currentCheckpoint.transform.position, currentCheckpoint.transform.rotation);
 		player.enabled = true;
 		player.GetComponent<Renderer>().enabled = true;
+		player.GetComponent<Rigidbody2D> ().gravityScale = gravityStore;
 	}
 }
